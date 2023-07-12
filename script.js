@@ -1,4 +1,4 @@
-//var startButton = document.querySelector(".start-button")
+let startButton = document.querySelector(".start-button")
 
 const quizQuestions = [
     {
@@ -33,6 +33,7 @@ let scoreBoard = document.querySelector("score")
 
 function startGame() {
 startTimer();
+displayQuestion();
   //  scoreBoard.display(none)
 }
 
@@ -43,21 +44,22 @@ function startTimer() {
 
         if(timerCount === 0) {
             clearInterval(timer)
+            "Time's Up!"
         }
       }, 1000);
 }
 
-function addEventListener() {
-    startButton.addEventListener('click', startGame());
-}
+
+startButton.addEventListener('click', startGame);
 
 function displayQuestion() {
     const questionElement = document.getElementById("question");
     const optionsElement = document.getElementById("options");
 
     questionElement.textContent = quizQuestions[currentQuestion].question;
+    optionsElement.textContnet = quizQuestions[currentQuestion].options;
 
 }  
 
-displayQuestion();
+//displayQuestion();
 //startTimer();
