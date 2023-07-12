@@ -32,6 +32,7 @@ let timerCount = 60;
 let scoreBoard = document.querySelector("score")
 
 function startGame() {
+startButton.style.display = "none"
 startTimer();
 displayQuestion();
   //  scoreBoard.display(none)
@@ -44,7 +45,6 @@ function startTimer() {
 
         if(timerCount === 0) {
             clearInterval(timer)
-            "Time's Up!"
         }
       }, 1000);
 }
