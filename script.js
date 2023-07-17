@@ -3,23 +3,31 @@ let startButton = document.querySelector(".start-button")
 const quizQuestions = [
     {
         question: "Where do you put a JS script link in an HTML document?",
-        options: ["top","middle","bottom"],
-        correct0: 3
+        optionA: "top",
+        optionB: "middle",
+        optionC: "bottom",
+        correct0: optionC
     },
     {
         question: "Const is a variable that _",
-        options: ["cannot be changed","can be changed locally", "can be changed globally"],
-        correct: 1
+        optionA: "cannot be changed",
+        optionB: "can be changed locally",
+        optionC: "can be changed globally",
+        correct1: optionA
     },
     {
         question: "What does 'return' in a function do?",
-        options: ["ends a function","executes a function","loops a function"],
-        correct: 1
+        optionA: "ends a function",
+        optionB: "executes a function",
+        optionC: "loops a function",
+        correct2: optionA
     },
     {
     question: "'var' works in _",
-    options: ["Javascript alone","Javascript and CSS","Javascript,CSS,and HTML"],
-    correct: 2
+    optionA: "Javascript alone",
+    optionB: "Javascript and CSS",
+    optionC: "Javascript,CSS,and HTML",
+    correct3: optionB
     }
 ];
 
@@ -54,12 +62,21 @@ startButton.addEventListener('click', startGame);
 
 function displayQuestion() {
     const questionElement = document.getElementById("question");
-    const optionsElement = document.getElementById("options");
+    var optionAElement = document.getElementById("optionA");
+    var optionBElement = document.getElementById("optionB");
+    var optionCElement = document.getElementById("optionC");
 
     questionElement.textContent = quizQuestions[currentQuestion].question;
-    optionsElement.textContnet = quizQuestions[currentQuestion].options;
+    optionAElement.textContent = quizQuestions[currentQuestion].optionA;
+    optionBElement.textContent = quizQuestions[currentQuestion].optionB;
+    optionCElement.textContent = quizQuestions[currentQuestion].optionC;
+}
 
-}  
+function checkAnswer() {
+    if (correct=true) {
+        addPoint()
+    }
+}
 
 //displayQuestion();
 //startTimer();
