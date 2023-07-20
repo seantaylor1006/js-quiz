@@ -1,4 +1,11 @@
 let startButton = document.querySelector(".start-button")
+let optionA = document.querySelector("#optionA")
+let optionB = document.querySelector("#optionB")
+let optionC = document.querySelector("#optionC")
+let score = document.querySelector('.score')
+let points = 0
+let pointsDisplay = document.querySelector('#pointsDisplay')
+score.style.display = 'none'
 
 const quizQuestions = [
     {
@@ -6,28 +13,28 @@ const quizQuestions = [
         optionA: "top",
         optionB: "middle",
         optionC: "bottom",
-        correct0: optionC
+        correct: optionC
     },
     {
         question: "Const is a variable that _",
         optionA: "cannot be changed",
         optionB: "can be changed locally",
         optionC: "can be changed globally",
-        correct1: optionA
+        correct: optionA
     },
     {
         question: "What does 'return' in a function do?",
         optionA: "ends a function",
         optionB: "executes a function",
         optionC: "loops a function",
-        correct2: optionA
+        correct: optionA
     },
     {
-    question: "'var' works in _",
-    optionA: "Javascript alone",
-    optionB: "Javascript and CSS",
-    optionC: "Javascript,CSS,and HTML",
-    correct3: optionB
+        question: "'var' works in _",
+        optionA: "Javascript alone",
+        optionB: "Javascript and CSS",
+        optionC: "Javascript,CSS,and HTML",
+        correct: optionB
     }
 ];
 
@@ -52,7 +59,8 @@ function startTimer() {
         timerElement.textContent = timerCount;
 
         if(timerCount === 0) {
-            clearInterval(timer)
+            clearInterval(timer);
+            displayScoreboard();
         }
       }, 1000);
 }
@@ -72,10 +80,47 @@ function displayQuestion() {
     optionCElement.textContent = quizQuestions[currentQuestion].optionC;
 }
 
-function checkAnswer() {
-    if (correct=true) {
-        addPoint()
+/*function selectAnswer() {
+    optionA.onclick = checkAnswer();
+    optionB.onclick = checkAnswer();
+    optionC.onclick = checkAnswer();
+}
+*/
+function checkAnswer(event) {
+    if(event.target === quizQuestions[currentQuestion].correct) {
+        points += 30;
+        console.log(points);
+        pointsDisplay.textContent = points;
     }
+    currentQuestion++;
+
+    if (currentQuestion >= quizQuestions.length) {
+        displayScoreboard();
+        console.log('quiz finished');
+    } else {
+        displayQuestion();  
+    }
+
+    console.log(event);
+}
+
+optionA.addEventListener('click', checkAnswer);
+optionB.addEventListener('click', checkAnswer);
+optionC.addEventListener('click', checkAnswer);
+
+
+
+function displayScoreboard() {
+    timerElement.style.display = 'none';
+    question.style.display = 'none';
+    optionA.style.display = 'none';
+    optionB.style.display = 'none';
+    optionC.style.display = 'none';
+
+
+    score.style.display = 'block';
+
+    
 }
 
 //displayQuestion();
