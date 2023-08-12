@@ -5,6 +5,8 @@ let optionC = document.querySelector("#optionC")
 let score = document.querySelector('.score')
 let points = 0
 let pointsDisplay = document.querySelector('#pointsDisplay')
+let nameText = document.querySelector('.highScore')
+let nameDisplay = document.querySelector('nameDisplay')
 score.style.display = 'none'
 
 const quizQuestions = [
@@ -44,7 +46,6 @@ let timerElement = document.querySelector(".timer-count")
 let timer;
 let timerCount = 60;
 
-let scoreBoard = document.querySelector("score")
 
 function startGame() {
 startButton.style.display = "none"
@@ -80,12 +81,6 @@ function displayQuestion() {
     optionCElement.textContent = quizQuestions[currentQuestion].optionC;
 }
 
-/*function selectAnswer() {
-    optionA.onclick = checkAnswer();
-    optionB.onclick = checkAnswer();
-    optionC.onclick = checkAnswer();
-}
-*/
 function checkAnswer(event) {
     if(event.target === quizQuestions[currentQuestion].correct) {
         points += 30;
@@ -116,12 +111,20 @@ function displayScoreboard() {
     optionA.style.display = 'none';
     optionB.style.display = 'none';
     optionC.style.display = 'none';
-
-
-    score.style.display = 'block';
-
-    
+    score.style.display = 'block';    
 }
+
+function saveScore() {
+    var userName = nameText.value.trim()
+    localStorage.setItem('points', JSON.stringify(points));
+    localStorage.setItem('userName', JSON.stringify(userName));
+}
+
+function renderScore(){
+ localStorage.getItem('points', JSON.parse(points));
+ localStorage.getItem('userName'); 
+}
+console.log(localStorage)
 
 //displayQuestion();
 //startTimer();
