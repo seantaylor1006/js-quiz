@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Quiz</title>
-    <!--<link rel="stylesheet" type="text/css" href="assets/style.css"/>-->
+<link rel="stylesheet" type="text/css" href="assets/style.css"/>
 </head>
 <body>
-    <div class = "timer-count">60</div>
-    <button class="start-button">Start</button>
-    <div id = "quiz-container">
-        <h2 id = "question"></h2>
-        <button id = "optionA"></button>
-        <button id = "optionB"></button>
-        <button id = "optionC"></button>
+    <div class = "page-container">
+        <div class = "quiz-container">
+            <div class = "quiz-container-header">
+                <div class = "timer-count">60</div>
+                <h1 class="header-item" id ="title">JavaScript Quiz</h1>
+                <h2 id = "question" class="header-item"></h2>
+            </div>
+            <button class="question-button" id = "optionA"></button>
+            <button class="question-button" id = "optionB"></button>
+            <button class="question-button" id = "optionC"></button>
+            <button class="start-button">Start</button>
+        </div>
     </div>
     <div class = "score">
         <h1>Quiz Finished!</h1>

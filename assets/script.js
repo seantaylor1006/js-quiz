@@ -1,4 +1,5 @@
 let startButton = document.querySelector(".start-button")
+let questionButton = document.querySelector(".question-button")
 let optionA = document.querySelector("#optionA")
 let optionB = document.querySelector("#optionB")
 let optionC = document.querySelector("#optionC")
@@ -7,7 +8,12 @@ let points = 0
 let pointsDisplay = document.querySelector('#pointsDisplay')
 let nameText = document.querySelector('.highScore')
 let scoreList = document.querySelector('#scoreList')
+let title = document.querySelector('#title')
+
 score.style.display = 'none'
+optionA.style.display = 'none'
+optionB.style.display = 'none'
+optionC.style.display = 'none'
 
 const quizQuestions = [
     {
@@ -49,6 +55,10 @@ let timerCount = 60;
 
 function startGame() {
 startButton.style.display = "none"
+optionA.style.display = "block"
+optionB.style.display = "block"
+optionC.style.display = "block"
+
 startTimer();
 displayQuestion();
   //  scoreBoard.display(none)
@@ -106,6 +116,7 @@ optionC.addEventListener('click', checkAnswer);
 
 
 function displayScoreboard() {
+    title.style.display = 'none';
     timerElement.style.display = 'none';
     question.style.display = 'none';
     optionA.style.display = 'none';
