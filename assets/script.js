@@ -6,7 +6,7 @@ let score = document.querySelector('.score')
 let points = 0
 let pointsDisplay = document.querySelector('#pointsDisplay')
 let nameText = document.querySelector('.highScore')
-let nameDisplay = document.querySelector('nameDisplay')
+let scoreList = document.querySelector('#scoreList')
 score.style.display = 'none'
 
 const quizQuestions = [
@@ -116,13 +116,22 @@ function displayScoreboard() {
 
 function saveScore() {
     var userName = nameText.value.trim()
-    localStorage.setItem('points', JSON.stringify(points));
-    localStorage.setItem('userName', JSON.stringify(userName));
+    var lastScore = [userName + "  " + points]
+    localStorage.setItem('last-score', JSON.stringify(lastScore))
 }
 
+
 function renderScore(){
- localStorage.getItem('points', JSON.parse(points));
- localStorage.getItem('userName'); 
+
+var ListEl = document.createElement("li");
+
+var ListData = JSON.parse(localStorage.getItem("last-score"));
+var ListText = document.createTextNode(ListData);
+localStorage.getItem("points", JSON.parse(points));
+
+ListEl.appendChild(ListText);
+scoreList.appendChild(ListEl);
+
 }
 console.log(localStorage)
 
