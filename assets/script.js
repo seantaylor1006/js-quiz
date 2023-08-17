@@ -143,7 +143,7 @@ localStorage.getItem("points", JSON.parse(points));
 
 ListEl.appendChild(ListText);
 scoreList.appendChild(ListEl);
-
+//Bree helped me with the score list
 }
 console.log(localStorage)
 
