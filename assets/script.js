@@ -122,7 +122,8 @@ function displayScoreboard() {
     optionA.style.display = 'none';
     optionB.style.display = 'none';
     optionC.style.display = 'none';
-    score.style.display = 'block';    
+    score.style.display = 'block';
+    renderScore()
 }
 
 function saveScore() {
